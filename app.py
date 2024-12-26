@@ -65,4 +65,4 @@ def add_drink():
     # Ajoute à la base de données
     new_consumption = Consumption(name=name, drink_type=drink_type)
     db.session.add(new_consumption)
-    db.s
+db.session.commit()
