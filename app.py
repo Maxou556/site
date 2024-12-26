@@ -65,4 +65,24 @@ def add_drink():
     # Ajoute à la base de données
     new_consumption = Consumption(name=name, drink_type=drink_type)
     db.session.add(new_consumption)
-db.session.commit()
+    db.session.commit()
+
+    return jsonify({'message': 'Drink added successfully!'})
+
+# Route pour récupérer les totaux
+@app.route('/totals', methods=['GET'])
+def totals():
+    total_beer = db.session.query(db.func.count(Consumption.id)).filter_by(drink_type='beer').scalar()
+    total_wine = db.session.query(db.func.count(Consumption.id)).filter_by(drink_type='wine').scalar()
+    return jsonify({'beer': total_beer or 0, 'wine': total_wine or 0})
+
+# Route pour le leaderboard
+@app.route('/leaderboard', methods=['GET'])
+def leaderboard():
+    results = db.session.query(Consumption.name, db.func.count(Consumption.id).label('count'))\
+                        .group_by(Consumption.name)\
+                        .order_by(db.desc('count')).all()
+    return jsonify({'leaderboard': [{'name': r[0], 'count': r[1]} for r in results]})
+
+if __name__ == '__main__':
+    app.run(debug=True)
