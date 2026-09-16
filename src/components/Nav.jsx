@@ -10,7 +10,9 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches,
+  )
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
@@ -20,7 +22,6 @@ export default function Nav() {
       if (!mq.matches) setOpen(false)
     }
     onScroll()
-    setIsMobile(mq.matches)
     window.addEventListener('scroll', onScroll, { passive: true })
     mq.addEventListener('change', onResize)
     return () => {
