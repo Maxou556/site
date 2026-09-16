@@ -25,15 +25,9 @@ export default function Hero() {
       </div>
 
       <div className="hero__content">
-        <motion.div className="hero__logo-wrap" {...enter(0)}>
-          <img
-            className="hero__logo"
-            src="/images/logo.jpg"
-            alt="Les Filles au La — Restaurant"
-            width={320}
-            height={320}
-          />
-        </motion.div>
+        <motion.h1 className="hero__brand" {...enter(0)}>
+          Les Filles au La
+        </motion.h1>
 
         <motion.p className="hero__tagline" {...enter(0.15)}>
           Guinguette culturelle au cœur de Mons — cuisine créative, terrasse
