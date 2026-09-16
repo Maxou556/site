@@ -4,10 +4,24 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export default function useScrollStory() {
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      gsap.set('.reveal-up, .reveal-fade, .ardoise__item, .ambiance__item, .chalk-title-live', {
+        clearProps: 'all',
+        opacity: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
+      })
+      return undefined
+    }
+
     const ctx = gsap.context(() => {
-      // Hero parallax — "on vous emmène en terrasse"
       gsap.to('.hero__media img', {
         yPercent: 18,
         scale: 1,
@@ -32,7 +46,6 @@ export default function useScrollStory() {
         },
       })
 
-      // Soft section reveals
       gsap.utils.toArray('.reveal-up').forEach((el) => {
         gsap.to(el, {
           opacity: 1,
@@ -65,10 +78,11 @@ export default function useScrollStory() {
         )
       })
 
-      // Ardoise dishes cascade
-      gsap.from('.ardoise__item', {
-        opacity: 0,
-        x: -18,
+      gsap.set('.ardoise__item', { x: -18 })
+
+      gsap.to('.ardoise__item', {
+        opacity: 1,
+        x: 0,
         duration: 0.75,
         stagger: 0.1,
         ease: 'power2.out',
@@ -79,10 +93,11 @@ export default function useScrollStory() {
         },
       })
 
-      // Gallery stagger
-      gsap.from('.ambiance__item', {
-        opacity: 0,
-        y: 40,
+      gsap.set('.ambiance__item', { y: 40 })
+
+      gsap.to('.ambiance__item', {
+        opacity: 1,
+        y: 0,
         duration: 1,
         stagger: 0.12,
         ease: 'power2.out',

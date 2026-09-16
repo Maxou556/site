@@ -10,15 +10,27 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
+    const onResize = () => setIsMobile(window.matchMedia('(max-width: 768px)').matches)
     onScroll()
+    onResize()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
   }, [])
 
+  useEffect(() => {
+    if (!isMobile) setOpen(false)
+  }, [isMobile])
+
   const close = () => setOpen(false)
+  const menuHidden = isMobile && !open
 
   return (
     <header className={`nav${scrolled ? ' is-scrolled' : ''}`}>
@@ -27,9 +39,18 @@ export default function Nav() {
           Les Filles au La
         </a>
 
-        <nav className={`nav__links${open ? ' is-open' : ''}`} aria-label="Navigation principale">
+        <nav
+          className={`nav__links${open ? ' is-open' : ''}`}
+          aria-label="Navigation principale"
+          inert={menuHidden ? true : undefined}
+        >
           {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={close}>
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={close}
+              tabIndex={menuHidden ? -1 : undefined}
+            >
               {link.label}
             </a>
           ))}

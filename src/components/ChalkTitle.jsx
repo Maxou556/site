@@ -13,10 +13,15 @@ export default function ChalkTitle({ text = 'La carte du jour' }) {
 
     const paths = root.querySelectorAll('.chalk-flourish path')
     const title = root.querySelector('.chalk-title-live')
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (reduced) {
+      gsap.set(title, { opacity: 1, y: 0 })
+      gsap.set(paths, { strokeDasharray: 'none', strokeDashoffset: 0 })
+      return undefined
+    }
 
     const ctx = gsap.context(() => {
-      gsap.set(title, { opacity: 0, y: 12 })
-
       paths.forEach((path) => {
         const length = path.getTotalLength()
         gsap.set(path, {

@@ -1,6 +1,17 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion()
+
+  const enter = (delay = 0) =>
+    reduceMotion
+      ? { initial: false, animate: { opacity: 1, y: 0 } }
+      : {
+          initial: { opacity: 0, y: 24 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 1, delay, ease: [0.22, 1, 0.36, 1] },
+        }
+
   return (
     <section className="hero" id="top" aria-label="Accueil">
       <div className="hero__media" aria-hidden="true">
@@ -14,31 +25,16 @@ export default function Hero() {
       </div>
 
       <div className="hero__content">
-        <motion.h1
-          className="hero__brand"
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <motion.h1 className="hero__brand" {...enter(0)}>
           Les Filles au La
         </motion.h1>
 
-        <motion.p
-          className="hero__tagline"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <motion.p className="hero__tagline" {...enter(0.2)}>
           Guinguette culturelle au cœur de Mons — cuisine créative, terrasse
           conviviale et soirées qui s&apos;étirent sous les parasols.
         </motion.p>
 
-        <motion.div
-          className="hero__actions"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <motion.div className="hero__actions" {...enter(0.4)}>
           <a className="btn btn--primary" href="#infos">
             Réserver
           </a>

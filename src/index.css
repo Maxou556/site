@@ -334,13 +334,15 @@ ul {
     box-shadow: 0 16px 40px rgba(42, 41, 38, 0.16);
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
     transform: translateY(-8px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   }
 
   .nav__links.is-open {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
     transform: translateY(0);
   }
 
@@ -901,6 +903,8 @@ ul {
   font-weight: 700;
   color: var(--chalk);
   line-height: 1.05;
+  opacity: 0;
+  transform: translateY(12px);
 }
 
 .chalk-flourish {
@@ -927,4 +931,28 @@ ul {
 
 .reveal-fade {
   opacity: 0;
+}
+
+.ardoise__item,
+.ambiance__item {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-up,
+  .reveal-fade,
+  .ardoise__item,
+  .ambiance__item,
+  .chalk-title-live {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__media img {
+    transform: none !important;
+  }
 }
