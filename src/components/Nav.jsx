@@ -14,20 +14,20 @@ export default function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
-    const onResize = () => setIsMobile(window.matchMedia('(max-width: 768px)').matches)
+    const mq = window.matchMedia('(max-width: 768px)')
+    const onResize = () => {
+      setIsMobile(mq.matches)
+      if (!mq.matches) setOpen(false)
+    }
     onScroll()
-    onResize()
+    setIsMobile(mq.matches)
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onResize)
+    mq.addEventListener('change', onResize)
     return () => {
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onResize)
+      mq.removeEventListener('change', onResize)
     }
   }, [])
-
-  useEffect(() => {
-    if (!isMobile) setOpen(false)
-  }, [isMobile])
 
   const close = () => setOpen(false)
   const menuHidden = isMobile && !open
