@@ -69,7 +69,7 @@ export default function Carte() {
           </p>
         </div>
 
-        <aside className="degustation reveal-fade">
+        <aside className="degustation">
           <p className="degustation__kicker">Pour savourer sans se presser</p>
           <h3 className="degustation__title">Menu dégustation</h3>
           <p className="degustation__lead">
