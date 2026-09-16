@@ -38,17 +38,17 @@ export default function Esprit() {
           </div>
         </div>
 
-        <div className="esprit__visual reveal-fade">
-          <img
-            src="/images/plat-volaille.jpg"
-            alt="Assiette de volaille, morilles et crème de potiron"
-            width={900}
-            height={1200}
-            loading="lazy"
-          />
-          <aside className="esprit__note">
-            Une cuisine de saison, servie dans leurs assiettes en céramique
-            artisanale.
+        <div className="esprit__stickers reveal-fade">
+          <aside className="esprit__note esprit__note--blue">
+            Un soir d&apos;été, un verre à la main, et le bruit doux de la ville
+            en fond.
+          </aside>
+          <aside className="esprit__note esprit__note--sage">
+            Concerts, apéros et tablées qui s&apos;étirent — sans se prendre au
+            sérieux.
+          </aside>
+          <aside className="esprit__note esprit__note--cream">
+            Cuisine créative, assiettes en céramique, ambiance guinguette.
           </aside>
         </div>
       </div>
