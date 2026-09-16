@@ -1,27 +1,31 @@
 const photos = [
   {
-    src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1400&q=80',
-    alt: 'Terrasse animée sous les parasols',
-    caption: 'Sous les parasols',
+    src: '/images/plat-magret.jpg',
+    alt: 'Magret laqué, pommes de terre rôties et purée',
+    caption: 'Magret & fruits',
     mod: 'a',
+    real: true,
   },
   {
-    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80',
-    alt: 'Assiette soignée sur nappe colorée',
-    caption: 'Assiettes du jour',
+    src: '/images/plat-courge.jpg',
+    alt: 'Courge rôtie, quinoa et purée dans une assiette artisanale',
+    caption: 'Courge & graines',
     mod: 'b',
+    real: true,
   },
   {
-    src: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1000&q=80',
-    alt: 'Intérieur chaleureux du restaurant',
-    caption: 'Salon d’hiver',
+    src: '/images/plat-confit.jpg',
+    alt: 'Confit de canard sur lit de grains épicés',
+    caption: 'Confit du jour',
     mod: 'c',
+    real: true,
   },
   {
-    src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1400&q=80',
-    alt: 'Concert et soirée culturelle',
-    caption: 'Soirées & concerts',
+    src: '/images/plat-volaille.jpg',
+    alt: 'Volaille rôtie, morilles et crème de potiron',
+    caption: 'Volaille & morilles',
     mod: 'd',
+    real: true,
   },
 ]
 
@@ -30,11 +34,11 @@ export default function Ambiance() {
     <section className="section ambiance" id="ambiance">
       <div className="container">
         <div className="ambiance__intro">
-          <p className="section-kicker reveal-up">Ambiance</p>
-          <h2 className="section-title reveal-up">La vie du lieu</h2>
+          <p className="section-kicker reveal-up">Ambiance & assiettes</p>
+          <h2 className="section-title reveal-up">Ce qu&apos;on met sur la table</h2>
           <p className="lead reveal-up">
-            Terrasse, tablées, assiettes colorées et soirées qui vibrent un peu —
-            voilà l&apos;esprit Filles au La.
+            Quelques plats maison pour se faire une idée — le reste se découvre
+            sur place, à l&apos;ardoise.
           </p>
         </div>
 
@@ -47,8 +51,8 @@ export default function Ambiance() {
               <img
                 src={photo.src}
                 alt={photo.alt}
-                width={1400}
-                height={900}
+                width={900}
+                height={1200}
                 loading="lazy"
               />
               <figcaption className="ambiance__caption">{photo.caption}</figcaption>

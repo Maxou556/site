@@ -40,15 +40,15 @@ export default function Esprit() {
 
         <div className="esprit__visual reveal-fade">
           <img
-            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
-            alt="Tablée conviviale en terrasse au crépuscule"
-            width={1200}
-            height={1500}
+            src="/images/plat-volaille.jpg"
+            alt="Assiette de volaille, morilles et crème de potiron"
+            width={900}
+            height={1200}
             loading="lazy"
           />
           <aside className="esprit__note">
-            Un soir d&apos;été, un verre à la main, et le bruit doux de la ville
-            en fond.
+            Une cuisine de saison, servie dans leurs assiettes en céramique
+            artisanale.
           </aside>
         </div>
       </div>

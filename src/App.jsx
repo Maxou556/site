@@ -23,6 +23,13 @@ export default function App() {
       </main>
       <footer className="footer">
         <div className="container">
+          <img
+            className="footer__logo"
+            src="/images/logo.jpg"
+            alt=""
+            width={96}
+            height={96}
+          />
           <p>
             <strong>Les Filles au La</strong>
             <br />

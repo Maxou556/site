@@ -17,14 +17,14 @@ const plats = [
     price: '24 €',
   },
   {
-    name: 'Pavé de saumon',
-    desc: 'Beurre citronné, légumes de saison',
+    name: 'Confit de canard & grains épicés',
+    desc: 'Oignon rouge, coriandre, sauce carotte',
     price: '26 €',
   },
   {
-    name: 'Planche à partager',
-    desc: 'Fromages, charcuteries, pickles maison',
-    price: '19 €',
+    name: 'Volaille rôtie, morilles & potiron',
+    desc: 'Crème de courge, romarin',
+    price: '27 €',
   },
   {
     name: 'Tarte du jour',
@@ -33,14 +33,25 @@ const plats = [
   },
 ]
 
+const degustation = [
+  'Amuse-bouche du jour',
+  'Entrée au choix (ardoise)',
+  'Plat signature de saison',
+  'Fromage ou pré-dessert',
+  'Dessert du chef',
+  'Accord mets & vins en option',
+]
+
 export default function Carte() {
   return (
     <section className="section carte" id="carte">
-      <div className="container">
+      <div className="container carte__layout">
         <div className="ardoise">
           <header className="ardoise__header">
             <ChalkTitle text="La carte du jour" />
-            <p>Quelques plats vedettes — comme sur notre vraie ardoise</p>
+            <p>
+              Exemples de plats — la vraie ardoise change selon les arrivages
+            </p>
           </header>
 
           <ul className="ardoise__list">
@@ -54,9 +65,30 @@ export default function Carte() {
           </ul>
 
           <p className="ardoise__footer">
-            La carte change au fil des arrivages — demandez les plats du jour.
+            Demandez les suggestions du jour à table.
           </p>
         </div>
+
+        <aside className="degustation reveal-fade">
+          <p className="degustation__kicker">Pour savourer sans se presser</p>
+          <h3 className="degustation__title">Menu dégustation</h3>
+          <p className="degustation__lead">
+            Un parcours en cinq temps, pensé comme une soirée en terrasse —
+            créatif, généreux, sans chichi.
+          </p>
+          <ol className="degustation__list">
+            {degustation.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          <p className="degustation__price">
+            <strong>48 €</strong>
+            <span> / personne · sans boissons</span>
+          </p>
+          <p className="degustation__note">
+            Sur réservation · disponible le soir (selon saison)
+          </p>
+        </aside>
       </div>
     </section>
   )

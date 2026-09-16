@@ -37,7 +37,14 @@ export default function Nav() {
     <header className={`nav${scrolled ? ' is-scrolled' : ''}`}>
       <div className="nav__inner">
         <a className="nav__brand" href="#top" onClick={close}>
-          Les Filles au La
+          <img
+            className="nav__logo"
+            src="/images/logo.jpg"
+            alt=""
+            width={48}
+            height={48}
+          />
+          <span>Les Filles au La</span>
         </a>
 
         <nav
