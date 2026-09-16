@@ -24,10 +24,6 @@ export default function Esprit() {
           </div>
           <div className="esprit__meta reveal-up">
             <div className="esprit__meta-item">
-              <strong>20–60 €</strong>
-              <span>Gamme de prix</span>
-            </div>
-            <div className="esprit__meta-item">
               <strong>Mons</strong>
               <span>Rue du Hautbois</span>
             </div>

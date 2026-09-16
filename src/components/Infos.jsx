@@ -52,11 +52,6 @@ export default function Infos() {
                   </div>
                 </dd>
               </div>
-
-              <div className="infos__row reveal-up">
-                <dt>Budget</dt>
-                <dd>Environ 20 à 60 € par personne</dd>
-              </div>
             </dl>
           </div>
 
