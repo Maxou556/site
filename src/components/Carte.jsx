@@ -33,24 +33,19 @@ const plats = [
   },
 ]
 
-const degustation = [
-  'Amuse-bouche du jour',
-  'Entrée au choix (ardoise)',
-  'Plat signature de saison',
-  'Fromage ou pré-dessert',
-  'Dessert du chef',
-  'Accord mets & vins en option',
-]
-
 export default function Carte() {
   return (
     <section className="section carte" id="carte">
-      <div className="container carte__layout">
+      <div className="container container--narrow">
         <div className="ardoise">
+          <p className="illustration-badge illustration-badge--chalk">
+            Menu d&apos;illustration — fictif
+          </p>
           <header className="ardoise__header">
             <ChalkTitle text="La carte du jour" />
             <p>
-              Exemples de plats — la vraie ardoise change selon les arrivages
+              Ces plats et prix sont inventés pour le mock-up du site. Ce n&apos;est
+              pas la vraie carte du restaurant.
             </p>
           </header>
 
@@ -65,30 +60,10 @@ export default function Carte() {
           </ul>
 
           <p className="ardoise__footer">
-            Demandez les suggestions du jour à table.
+            Sur place, seuls comptent l&apos;ardoise du jour et les suggestions
+            de l&apos;équipe.
           </p>
         </div>
-
-        <aside className="degustation">
-          <p className="degustation__kicker">Pour savourer sans se presser</p>
-          <h3 className="degustation__title">Menu dégustation</h3>
-          <p className="degustation__lead">
-            Un parcours en cinq temps, pensé comme une soirée en terrasse —
-            créatif, généreux, sans chichi.
-          </p>
-          <ol className="degustation__list">
-            {degustation.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-          <p className="degustation__price">
-            <strong>48 €</strong>
-            <span> / personne · sans boissons</span>
-          </p>
-          <p className="degustation__note">
-            Sur réservation · disponible le soir (selon saison)
-          </p>
-        </aside>
       </div>
     </section>
   )

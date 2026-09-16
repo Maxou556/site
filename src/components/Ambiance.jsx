@@ -14,18 +14,18 @@ const photos = [
     real: true,
   },
   {
-    src: '/images/plat-confit.jpg',
-    alt: 'Confit de canard sur lit de grains épicés',
-    caption: 'Confit du jour',
+    src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Illustration d’une terrasse de restaurant',
+    caption: 'Terrasse',
     mod: 'c',
-    real: true,
+    real: false,
   },
   {
-    src: '/images/plat-volaille.jpg',
-    alt: 'Volaille rôtie, morilles et crème de potiron',
-    caption: 'Volaille & morilles',
+    src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Illustration d’un intérieur de bar-restaurant',
+    caption: 'Intérieur',
     mod: 'd',
-    real: true,
+    real: false,
   },
 ]
 
@@ -37,8 +37,8 @@ export default function Ambiance() {
           <p className="section-kicker reveal-up">Ambiance & assiettes</p>
           <h2 className="section-title reveal-up">Ce qu&apos;on met sur la table</h2>
           <p className="lead reveal-up">
-            Quelques plats maison pour se faire une idée — le reste se découvre
-            sur place, à l&apos;ardoise.
+            Photos de plats du lieu, et quelques vues d&apos;ambiance marquées
+            comme illustrations (pas prises sur place).
           </p>
         </div>
 
@@ -55,6 +55,11 @@ export default function Ambiance() {
                 height={1200}
                 loading="lazy"
               />
+              {!photo.real && (
+                <span className="illustration-badge illustration-badge--photo">
+                  Image d&apos;illustration
+                </span>
+              )}
               <figcaption className="ambiance__caption">{photo.caption}</figcaption>
             </figure>
           ))}

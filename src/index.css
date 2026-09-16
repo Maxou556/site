@@ -586,17 +586,36 @@ ul {
     linear-gradient(180deg, transparent, rgba(42, 63, 54, 0.04));
 }
 
-.carte__layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: stretch;
+.illustration-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-hand);
+  font-size: 0.92rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
-@media (max-width: 900px) {
-  .carte__layout {
-    grid-template-columns: 1fr;
-  }
+.illustration-badge--chalk {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 1rem;
+  padding: 0.35rem 0.85rem;
+  color: rgba(244, 240, 230, 0.88);
+  border: 1px dashed rgba(244, 240, 230, 0.45);
+  border-radius: 999px 4px 999px 999px;
+  width: fit-content;
+}
+
+.illustration-badge--photo {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  padding: 0.35rem 0.7rem;
+  background: rgba(42, 41, 38, 0.72);
+  color: var(--cream);
+  border-radius: 4px 12px 4px 12px;
+  backdrop-filter: blur(4px);
 }
 
 .ardoise {
@@ -689,89 +708,6 @@ ul {
   font-family: var(--font-hand);
   font-size: 1rem;
   color: rgba(244, 240, 230, 0.6);
-}
-
-.degustation {
-  padding: clamp(1.75rem, 3vw, 2.35rem);
-  background:
-    linear-gradient(160deg, rgba(255, 252, 247, 0.9), rgba(232, 223, 208, 0.75));
-  border: 1.5px dashed rgba(92, 107, 74, 0.4);
-  border-radius: 8px 28px 12px 22px / 22px 10px 26px 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-.degustation__kicker {
-  font-family: var(--font-hand);
-  color: var(--terracotta);
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.degustation__title {
-  font-family: var(--font-chalk);
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  color: var(--slate-green);
-  line-height: 1.05;
-  margin-bottom: 0.75rem;
-}
-
-.degustation__lead {
-  font-size: 1.1rem;
-  color: var(--ink-soft);
-  margin-bottom: 1.25rem;
-}
-
-.degustation__list {
-  display: grid;
-  gap: 0.65rem;
-  margin-bottom: 1.5rem;
-  counter-reset: degust;
-}
-
-.degustation__list li {
-  position: relative;
-  padding-left: 2rem;
-  font-family: var(--font-hand);
-  font-size: 1.1rem;
-  color: var(--ink);
-  counter-increment: degust;
-}
-
-.degustation__list li::before {
-  content: counter(degust);
-  position: absolute;
-  left: 0;
-  top: 0.05rem;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 50%;
-  background: var(--olive);
-  color: var(--cream);
-  font-size: 0.8rem;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-serif);
-}
-
-.degustation__price {
-  margin-top: auto;
-  font-size: 1.15rem;
-  color: var(--ink-soft);
-}
-
-.degustation__price strong {
-  font-family: var(--font-chalk);
-  font-size: 2rem;
-  color: var(--terracotta);
-  font-weight: 700;
-}
-
-.degustation__note {
-  margin-top: 0.4rem;
-  font-family: var(--font-hand);
-  font-size: 0.95rem;
-  color: var(--muted);
 }
 
 /* —— Ambiance —— */
